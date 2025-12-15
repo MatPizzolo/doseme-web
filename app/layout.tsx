@@ -1,18 +1,20 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Inter, Geist_Mono } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
+import localFont from "next/font/local"
 
-const _inter = Inter({ subsets: ["latin"] })
-const _geistMono = Geist_Mono({ subsets: ["latin"] })
+const myFont = localFont({
+  src: "./fonts/Swiss721BT.ttf"
+})
 
 export const metadata: Metadata = {
-  title: "PristinePro Limpieza Comercial | Servicios Profesionales de Limpieza para Empresas",
+  title: "DosEme | Servicios Profesionales de Limpieza para Empresas",
   description:
     "Servicios expertos de limpieza comercial para oficinas, locales comerciales y propiedades comerciales. Personal certificado, productos eco-amigables y horarios flexibles.",
-    generator: 'v0.app'
 }
+
+
 
 export default function RootLayout({
   children,
@@ -21,7 +23,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
-      <body className={`font-swis721 antialiased`}>
+      <body className={`antialiased ${myFont.className}`}>
         {children}
         <Analytics />
       </body>
